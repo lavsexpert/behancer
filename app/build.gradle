@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.elegion.test.behancer"
+        applicationId "club.plus1.behancer"
         minSdkVersion 15
         targetSdkVersion 27
         versionCode 1
@@ -11,7 +11,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         buildConfigField "String", "API_URL", '"https://www.behance.net/"'
-        buildConfigField "String", "API_KEY", '"PK2ePWvvXiBXzzHWDHPCsjEvJdZzhIQm"'
+        buildConfigField "String", "API_KEY", '"shGNvWeV42is0aodebsThZsswfS92Pwz"'
         buildConfigField "String", "API_QUERY", '"motorcycle"'
     }
     buildTypes {
