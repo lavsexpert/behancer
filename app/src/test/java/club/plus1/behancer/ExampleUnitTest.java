@@ -1,4 +1,4 @@
-package com.elegion.test.behancer;
+package club.plus1.behancer;
 
 import org.junit.Test;
 

@@ -1,8 +1,8 @@
-package com.elegion.test.behancer.data.api;
+package club.plus1.behancer.data.api;
 
 import android.support.annotation.NonNull;
 
-import com.elegion.test.behancer.BuildConfig;
+import club.plus1.behancer.BuildConfig;
 
 import java.io.IOException;
 

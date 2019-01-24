@@ -1,4 +1,4 @@
-package com.elegion.test.behancer.data.model.user;
+package club.plus1.behancer.data.model.user;
 
 import com.google.gson.annotations.SerializedName;
 

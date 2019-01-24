@@ -1,4 +1,4 @@
-package com.elegion.test.behancer;
+package club.plus1.behancer;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

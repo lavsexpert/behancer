@@ -1,8 +1,8 @@
-package com.elegion.test.behancer.utils;
+package club.plus1.behancer.utils;
 
-import com.elegion.test.behancer.BuildConfig;
-import com.elegion.test.behancer.data.api.ApiKeyInterceptor;
-import com.elegion.test.behancer.data.api.BehanceApi;
+import club.plus1.behancer.BuildConfig;
+import club.plus1.behancer.data.api.ApiKeyInterceptor;
+import club.plus1.behancer.data.api.BehanceApi;
 import com.google.gson.Gson;
 
 import java.net.ConnectException;

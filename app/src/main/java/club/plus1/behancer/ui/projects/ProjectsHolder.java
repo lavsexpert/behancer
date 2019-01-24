@@ -1,13 +1,13 @@
-package com.elegion.test.behancer.ui.projects;
+package club.plus1.behancer.ui.projects;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.elegion.test.behancer.R;
-import com.elegion.test.behancer.data.model.project.Project;
-import com.elegion.test.behancer.utils.DateUtils;
+import club.plus1.behancer.R;
+import club.plus1.behancer.data.model.project.Project;
+import club.plus1.behancer.utils.DateUtils;
 import com.squareup.picasso.Picasso;
 
 /**

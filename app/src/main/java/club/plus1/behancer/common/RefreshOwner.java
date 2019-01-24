@@ -1,4 +1,4 @@
-package com.elegion.test.behancer.common;
+package club.plus1.behancer.common;
 
 /**
  * @author Azret Magometov

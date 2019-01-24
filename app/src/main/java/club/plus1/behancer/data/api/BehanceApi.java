@@ -1,7 +1,7 @@
-package com.elegion.test.behancer.data.api;
+package club.plus1.behancer.data.api;
 
-import com.elegion.test.behancer.data.model.project.ProjectResponse;
-import com.elegion.test.behancer.data.model.user.UserResponse;
+import club.plus1.behancer.data.model.project.ProjectResponse;
+import club.plus1.behancer.data.model.user.UserResponse;
 
 import io.reactivex.Single;
 import retrofit2.http.GET;

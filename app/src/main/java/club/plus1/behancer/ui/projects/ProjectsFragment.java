@@ -1,4 +1,4 @@
-package com.elegion.test.behancer.ui.projects;
+package club.plus1.behancer.ui.projects;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,14 +12,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.elegion.test.behancer.BuildConfig;
-import com.elegion.test.behancer.R;
-import com.elegion.test.behancer.ui.profile.ProfileActivity;
-import com.elegion.test.behancer.ui.profile.ProfileFragment;
-import com.elegion.test.behancer.utils.ApiUtils;
-import com.elegion.test.behancer.common.RefreshOwner;
-import com.elegion.test.behancer.common.Refreshable;
-import com.elegion.test.behancer.data.Storage;
+import club.plus1.behancer.BuildConfig;
+import club.plus1.behancer.R;
+import club.plus1.behancer.ui.profile.ProfileActivity;
+import club.plus1.behancer.ui.profile.ProfileFragment;
+import club.plus1.behancer.utils.ApiUtils;
+import club.plus1.behancer.common.RefreshOwner;
+import club.plus1.behancer.common.Refreshable;
+import club.plus1.behancer.data.Storage;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;

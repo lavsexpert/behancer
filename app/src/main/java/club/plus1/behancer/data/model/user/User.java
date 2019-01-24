@@ -1,4 +1,4 @@
-package com.elegion.test.behancer.data.model.user;
+package club.plus1.behancer.data.model.user;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;

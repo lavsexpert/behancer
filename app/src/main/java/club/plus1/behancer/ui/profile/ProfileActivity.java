@@ -1,8 +1,8 @@
-package com.elegion.test.behancer.ui.profile;
+package club.plus1.behancer.ui.profile;
 
 import android.support.v4.app.Fragment;
 
-import com.elegion.test.behancer.common.SingleFragmentActivity;
+import club.plus1.behancer.common.SingleFragmentActivity;
 
 /**
  * Created by Vladislav Falzan.

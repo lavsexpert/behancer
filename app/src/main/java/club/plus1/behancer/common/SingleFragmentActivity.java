@@ -1,4 +1,4 @@
-package com.elegion.test.behancer.common;
+package club.plus1.behancer.common;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,9 +7,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 
-import com.elegion.test.behancer.AppDelegate;
-import com.elegion.test.behancer.R;
-import com.elegion.test.behancer.data.Storage;
+import club.plus1.behancer.AppDelegate;
+import club.plus1.behancer.R;
+import club.plus1.behancer.data.Storage;
 
 /**
  * Created by Vladislav Falzan.

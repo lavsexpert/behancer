@@ -1,4 +1,4 @@
-package com.elegion.test.behancer.utils;
+package club.plus1.behancer.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

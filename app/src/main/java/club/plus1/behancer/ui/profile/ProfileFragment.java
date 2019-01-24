@@ -1,4 +1,4 @@
-package com.elegion.test.behancer.ui.profile;
+package club.plus1.behancer.ui.profile;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,13 +11,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.elegion.test.behancer.R;
-import com.elegion.test.behancer.common.RefreshOwner;
-import com.elegion.test.behancer.common.Refreshable;
-import com.elegion.test.behancer.data.Storage;
-import com.elegion.test.behancer.data.model.user.User;
-import com.elegion.test.behancer.utils.ApiUtils;
-import com.elegion.test.behancer.utils.DateUtils;
+import club.plus1.behancer.R;
+import club.plus1.behancer.common.RefreshOwner;
+import club.plus1.behancer.common.Refreshable;
+import club.plus1.behancer.data.Storage;
+import club.plus1.behancer.data.model.user.User;
+import club.plus1.behancer.utils.ApiUtils;
+import club.plus1.behancer.utils.DateUtils;
 import com.squareup.picasso.Picasso;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;

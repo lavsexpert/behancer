@@ -1,13 +1,13 @@
-package com.elegion.test.behancer.data.database;
+package club.plus1.behancer.data.database;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;
 
-import com.elegion.test.behancer.data.model.project.Cover;
-import com.elegion.test.behancer.data.model.project.Owner;
-import com.elegion.test.behancer.data.model.project.Project;
-import com.elegion.test.behancer.data.model.user.Image;
-import com.elegion.test.behancer.data.model.user.User;
+import club.plus1.behancer.data.model.project.Cover;
+import club.plus1.behancer.data.model.project.Owner;
+import club.plus1.behancer.data.model.project.Project;
+import club.plus1.behancer.data.model.user.Image;
+import club.plus1.behancer.data.model.user.User;
 
 /**
  * Created by Vladislav Falzan.
