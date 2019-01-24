@@ -1,5 +1,7 @@
 package club.plus1.behancer.ui.profile;
 
+import com.arellomobile.mvp.InjectViewState;
+
 import club.plus1.behancer.common.BasePresenter;
 import club.plus1.behancer.data.Storage;
 import club.plus1.behancer.data.model.user.User;
@@ -10,7 +12,9 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * @author Sergey Lavrov
  */
-public class ProfilePresenter extends BasePresenter {
+
+@InjectViewState
+public class ProfilePresenter extends BasePresenter<ProfileView> {
 
     private ProfileView mView;
     private String mUsername;
@@ -22,7 +26,8 @@ public class ProfilePresenter extends BasePresenter {
         this.mUsername = mUsername;
     }
 
-    public void getProfile() {
+    public void getProfile(String username) {
+        this.mUsername = username;
         mCompositeDisposable.add(ApiUtils.getApiService().getUserInfo(mUsername)
                 .subscribeOn(Schedulers.io())
                 .doOnSuccess(response -> mStorage.insertUser(response))

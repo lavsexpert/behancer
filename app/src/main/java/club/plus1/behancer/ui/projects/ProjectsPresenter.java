@@ -1,5 +1,8 @@
 package club.plus1.behancer.ui.projects;
 
+import com.arellomobile.mvp.InjectViewState;
+import com.arellomobile.mvp.presenter.InjectPresenter;
+
 import club.plus1.behancer.BuildConfig;
 import club.plus1.behancer.common.BasePresenter;
 import club.plus1.behancer.data.Storage;
@@ -10,7 +13,9 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * @author Sergey Lavrov
  */
-public class ProjectsPresenter extends BasePresenter {
+
+@InjectViewState
+public class ProjectsPresenter extends BasePresenter<ProjectsView> {
 
     private ProjectsView mView;
     private Storage mStorage;

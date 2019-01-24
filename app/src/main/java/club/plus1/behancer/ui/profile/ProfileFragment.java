@@ -17,6 +17,9 @@ import club.plus1.behancer.common.Refreshable;
 import club.plus1.behancer.data.Storage;
 import club.plus1.behancer.data.model.user.User;
 import club.plus1.behancer.utils.DateUtils;
+
+import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -24,7 +27,7 @@ import com.squareup.picasso.Picasso;
  * @author Sergey Lavrov
  */
 public class ProfileFragment
-        extends PresenterFragment<ProfilePresenter>
+        extends PresenterFragment
         implements ProfileView, Refreshable {
 
     public static final String PROFILE_KEY = "PROFILE_KEY";
@@ -34,12 +37,24 @@ public class ProfileFragment
     private View mProfileView;
     private String mUsername;
     private Storage mStorage;
-    private ProfilePresenter mPresenter;
 
     private ImageView mProfileImage;
     private TextView mProfileName;
     private TextView mProfileCreatedOn;
     private TextView mProfileLocation;
+
+    @InjectPresenter
+    ProfilePresenter mPresenter;
+
+    @ProvidePresenter
+    ProfilePresenter providePresenter(){
+        return new ProfilePresenter(this, mStorage, "");
+    }
+
+    @Override
+    protected ProfilePresenter getPresenter() {
+        return mPresenter;
+    }
 
     public static ProfileFragment newInstance(Bundle args) {
         ProfileFragment fragment = new ProfileFragment();
@@ -84,7 +99,6 @@ public class ProfileFragment
             getActivity().setTitle(mUsername);
         }
 
-        mPresenter = new ProfilePresenter(this, mStorage, mUsername);
         mProfileView.setVisibility(View.VISIBLE);
 
         onRefreshData();
@@ -92,7 +106,7 @@ public class ProfileFragment
 
     @Override
     public void onRefreshData() {
-        mPresenter.getProfile();
+        mPresenter.getProfile(mUsername);
     }
 
     @Override
@@ -134,10 +148,5 @@ public class ProfileFragment
     public void showError() {
         mErrorView.setVisibility(View.VISIBLE);
         mProfileView.setVisibility(View.GONE);
-    }
-
-    @Override
-    protected ProfilePresenter getPresenter() {
-        return null;
     }
 }
