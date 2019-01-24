@@ -20,9 +20,9 @@ import club.plus1.behancer.utils.DateUtils;
 import com.squareup.picasso.Picasso;
 
 /**
- * Created by Vladislav Falzan.
+ * @author Vladislav Falzan
+ * @author Sergey Lavrov
  */
-
 public class ProfileFragment
         extends PresenterFragment<ProfilePresenter>
         implements ProfileView, Refreshable {

@@ -1,7 +1,5 @@
 package club.plus1.behancer.ui.projects;
 
-import android.view.View;
-
 import club.plus1.behancer.BuildConfig;
 import club.plus1.behancer.common.BasePresenter;
 import club.plus1.behancer.data.Storage;
@@ -9,6 +7,9 @@ import club.plus1.behancer.utils.ApiUtils;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * @author Sergey Lavrov
+ */
 public class ProjectsPresenter extends BasePresenter {
 
     private ProjectsView mView;

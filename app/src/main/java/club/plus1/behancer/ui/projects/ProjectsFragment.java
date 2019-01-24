@@ -30,9 +30,9 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 /**
- * Created by Vladislav Falzan.
+ * @author Vladislav Falzan
+ * @author Sergey Lavrov
  */
-
 public class ProjectsFragment
         extends PresenterFragment<ProjectsPresenter>
         implements ProjectsView, Refreshable, ProjectsAdapter.OnItemClickListener {

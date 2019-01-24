@@ -7,6 +7,9 @@ import club.plus1.behancer.utils.ApiUtils;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * @author Sergey Lavrov
+ */
 public class ProfilePresenter extends BasePresenter {
 
     private ProfileView mView;
