@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,23 +11,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import club.plus1.behancer.R;
+import club.plus1.behancer.common.PresenterFragment;
 import club.plus1.behancer.common.RefreshOwner;
 import club.plus1.behancer.common.Refreshable;
 import club.plus1.behancer.data.Storage;
 import club.plus1.behancer.data.model.user.User;
-import club.plus1.behancer.utils.ApiUtils;
 import club.plus1.behancer.utils.DateUtils;
 import com.squareup.picasso.Picasso;
-
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by Vladislav Falzan.
  */
 
-public class ProfileFragment extends Fragment implements Refreshable {
+public class ProfileFragment
+        extends PresenterFragment<ProfilePresenter>
+        implements ProfileView, Refreshable {
 
     public static final String PROFILE_KEY = "PROFILE_KEY";
 
@@ -37,7 +34,7 @@ public class ProfileFragment extends Fragment implements Refreshable {
     private View mProfileView;
     private String mUsername;
     private Storage mStorage;
-    private Disposable mDisposable;
+    private ProfilePresenter mPresenter;
 
     private ImageView mProfileImage;
     private TextView mProfileName;
@@ -50,7 +47,6 @@ public class ProfileFragment extends Fragment implements Refreshable {
 
         return fragment;
     }
-
 
     @Override
     public void onAttach(Context context) {
@@ -88,6 +84,7 @@ public class ProfileFragment extends Fragment implements Refreshable {
             getActivity().setTitle(mUsername);
         }
 
+        mPresenter = new ProfilePresenter(this, mStorage, mUsername);
         mProfileView.setVisibility(View.VISIBLE);
 
         onRefreshData();
@@ -95,33 +92,11 @@ public class ProfileFragment extends Fragment implements Refreshable {
 
     @Override
     public void onRefreshData() {
-        getProfile();
+        mPresenter.getProfile();
     }
 
-    private void getProfile() {
-        mDisposable = ApiUtils.getApiService().getUserInfo(mUsername)
-                .subscribeOn(Schedulers.io())
-                .doOnSuccess(response -> mStorage.insertUser(response))
-                .onErrorReturn(throwable ->
-                        ApiUtils.NETWORK_EXCEPTIONS.contains(throwable.getClass()) ?
-                                mStorage.getUser(mUsername) :
-                                null)
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe(disposable -> mRefreshOwner.setRefreshState(true))
-                .doFinally(() -> mRefreshOwner.setRefreshState(false))
-                .subscribe(
-                        response -> {
-                            mErrorView.setVisibility(View.GONE);
-                            mProfileView.setVisibility(View.VISIBLE);
-                            bind(response.getUser());
-                        },
-                        throwable -> {
-                            mErrorView.setVisibility(View.VISIBLE);
-                            mProfileView.setVisibility(View.GONE);
-                        });
-    }
-
-    private void bind(User user) {
+    @Override
+    public void bind(User user) {
         Picasso.with(getContext())
                 .load(user.getImage().getPhotoUrl())
                 .fit()
@@ -135,9 +110,34 @@ public class ProfileFragment extends Fragment implements Refreshable {
     public void onDetach() {
         mStorage = null;
         mRefreshOwner = null;
-        if (mDisposable != null) {
-            mDisposable.dispose();
-        }
         super.onDetach();
+    }
+
+    @Override
+    public void getProfile(User user) {
+        mErrorView.setVisibility(View.GONE);
+        mProfileView.setVisibility(View.VISIBLE);
+        bind(user);
+    }
+
+    @Override
+    public void showRefresh() {
+        mRefreshOwner.setRefreshState(true);
+    }
+
+    @Override
+    public void hideRefresh() {
+        mRefreshOwner.setRefreshState(false);
+    }
+
+    @Override
+    public void showError() {
+        mErrorView.setVisibility(View.VISIBLE);
+        mProfileView.setVisibility(View.GONE);
+    }
+
+    @Override
+    protected ProfilePresenter getPresenter() {
+        return null;
     }
 }
